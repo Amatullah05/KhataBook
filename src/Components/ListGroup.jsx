@@ -11,7 +11,8 @@ const ListGroup = ({theme , transactions , removeTransaction, editTransaction}) 
             transactions={transactions} 
             key={transactions.id} 
             removeTransaction={removeTransaction} 
-            editTransaction={editTransaction}/>
+            editTransaction={editTransaction}
+            />
           ))
         }
         {/* <ListItem theme={theme} transactions={transactions}/> */}

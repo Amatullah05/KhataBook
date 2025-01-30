@@ -22,8 +22,8 @@ const App = () => {
     setTransactions(transactions.filter(item => item.id !== id))
   }
   
-  const addTransactions = (text , amount) =>{
-    setTransactions([{ id : crypto.randomUUID(), text : text , amount : parseInt(amount)}, ...transactions])
+  const addTransactions = (text , amount , type) =>{
+    setTransactions([{ id : crypto.randomUUID(), text : text , amount : parseInt(amount) , type}, ...transactions])
   }
 
   const [edit , setEdit] = useState({ transaction : {} , isEdit : false })
@@ -32,10 +32,10 @@ const App = () => {
     setEdit({transaction : transaction , isEdit : true})
   }
 
-  const updateTransaction = (id , text , amount) => {
+  const updateTransaction = (id , text , amount , type) => {
     setTransactions(transactions.map((item)=> {
       if(item.id === id ){
-        return {id , text , amount}
+        return {id , text , amount , type}
       }else{
         return item;
       }
@@ -57,7 +57,8 @@ const App = () => {
           <ListGroup theme={theme} 
           transactions={transactions} 
           removeTransaction={removeTransaction} 
-          editTransaction = {editTransaction}/>
+          editTransaction = {editTransaction}
+          />
     </div>
     </>
   );
